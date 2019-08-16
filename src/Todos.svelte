@@ -1,13 +1,29 @@
 <script>
-  let todos = [];
+  import Todo from './Todo.svelte';
+
+  let todos = [{
+    id: 1,
+    text: 'Try svelte later',
+    done: false
+  }, {
+    id: 2,
+    text: 'Walk the doge',
+    done: false
+  }];
 	let newTodo = '';
 
   function addTodo() {
     todos = [...todos, {
-      description: newTodo,
+      id: (new Date()).getTime(),
+      text: newTodo,
       done: false,
     }]
     newTodo = '';
+  }
+
+  function deleteTodo(event) {
+    const newTodos = todos.filter(t => t.id !== event.detail.id);
+    todos = newTodos;
   }
 </script>
 
@@ -39,25 +55,26 @@
   }
 
   input {
-    width: 72%;
+    width: 83%;
   }
 
   button {
     color: #fff;
     background: #263238;
     font-weight: 600;
+    cursor: pointer;
   }
 </style>
 
 <ul>
 	{#each todos as todo}
-		<li>{todo.description}</li>
+		<Todo todo={todo} on:delete={deleteTodo} />
   {:else}
     <li class="no-todos">No todos yet. Try adding one!</li>
 	{/each}
 </ul>
 
 <form on:submit|preventDefault={addTodo}>
-  <input type="text" bind:value={newTodo} placeholder="try svelte later" />
-  <button type="submit">Add Todo</button>
+  <input type="text" bind:value={newTodo} placeholder="What to do?" />
+  <button type="submit">Add</button>
 </form>

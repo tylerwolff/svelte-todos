@@ -15,7 +15,7 @@
 	}
 
 	.add-margins {
-		margin-top: 3em;
+		margin-top: 2em;
 		margin-bottom: 3em;
 	}
 

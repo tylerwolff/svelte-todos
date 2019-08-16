@@ -45,7 +45,7 @@
 <header>
 	<div class="wrapper flex">
 		<h1>Svelte todos</h1>
-		<a class="github" href="https://github.com">github →</a>
+		<a class="github" href="https://github.com/tylerwolff/svelte-todos">github →</a>
 	</div>
 </header>
 <div class="wrapper add-margins">

@@ -1,8 +1,10 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
+  import { fade } from 'svelte/transition';
 
   export let todo;
+
+  const dispatch = createEventDispatcher();
 
   function deleteTodo() {
     dispatch('delete', {
@@ -49,7 +51,7 @@
 </style>
 
 <li class="todo">
-  <label>
+  <label transition:fade="{{ duration: 250 }}">
     <input class="checkbox" type="checkbox" bind:checked={todo.done} />
     <span class:done={todo.done}>{todo.text}</span>
   </label>

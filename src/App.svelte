@@ -1,3 +1,7 @@
+<script>
+	import Todos from './Todos.svelte';
+</script>
+
 <style>
 	:global(body) {
 		margin: 0;
@@ -5,9 +9,14 @@
 		-webkit-font-smoothing: antialiased;
 	}
 
-	.main {
+	.wrapper {
 		max-width: 400px;
-		margin: 1em auto;
+		margin: 0 auto;
+	}
+
+	.add-margins {
+		margin-top: 3em;
+		margin-bottom: 3em;
 	}
 
 	header {
@@ -16,15 +25,29 @@
 		box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	}
 
+	.flex {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
 	h1 {
 		color: #fff;
-		text-align: center;
+	}
+
+	.github {
+		float: right;
+		color: rgba(255,255,255,0.75);
+		font-size: 0.875em;
 	}
 </style>
 
 <header>
-	<h1>Svelte todos</h1>
+	<div class="wrapper flex">
+		<h1>Svelte todos</h1>
+		<a class="github" href="https://github.com">github →</a>
+	</div>
 </header>
-<div class="main">
-	todos
+<div class="wrapper add-margins">
+	<Todos />
 </div>

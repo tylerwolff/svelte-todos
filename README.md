@@ -1,3 +1,3 @@
 # Svelte Todo App
 
-A todo app built with [Svelte](https://svelte.dev).
+A simple todo app built with [Svelte](https://svelte.dev).
